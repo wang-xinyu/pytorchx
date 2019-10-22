@@ -1,5 +1,11 @@
 pytorch-summary/
 */*.pkl
+*/*.pth
 */*.wts
 */__pycache__/
 */log*
+*/*/*.pkl
+*/*/*.pth
+*/*/*.wts
+*/*/__pycache__/
+*/*/log*

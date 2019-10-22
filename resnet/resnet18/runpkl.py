@@ -10,7 +10,7 @@ def main():
     net = torch.load('resnet18.pkl')
     net = net.to('cuda:0')
     net.eval()
-    #print('model: ', net)
+    print('model: ', net)
     #print('state dict: ', net.state_dict().keys())
     tmp = torch.ones(1, 3, 224, 224).to('cuda:0')
     print('input: ', tmp)
