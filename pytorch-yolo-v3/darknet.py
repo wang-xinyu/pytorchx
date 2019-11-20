@@ -364,6 +364,9 @@ class Darknet(nn.Module):
                 #Output the result
                 x = x.data
                 x = predict_transform(x, inp_dim, anchors, num_classes, CUDA)
+
+                print('yolo shape: ', x.shape)
+                print('yolo : ', x)
                 
                 if type(x) == int:
                     continue
@@ -378,8 +381,8 @@ class Darknet(nn.Module):
                 
                 outputs[i] = outputs[i-1]
                 
-        print('outputs[52]: ', outputs[52].shape)
-        print('outputs[52]: ', outputs[52])
+        print('outputs[81]: ', outputs[81].shape)
+        print('outputs[82]: ', outputs[82].shape)
         
         try:
             return detections

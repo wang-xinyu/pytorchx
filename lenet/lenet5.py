@@ -39,7 +39,7 @@ def main():
     tmp = torch.randn(2, 1, 32, 32).to('cuda:0')
     out = net(tmp)
     print('lenet out:', out.shape)
-    torch.save(net, "lenet5.pkl")
+    torch.save(net, "lenet5.pth")
 
 if __name__ == '__main__':
     main()

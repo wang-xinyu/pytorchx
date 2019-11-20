@@ -28,11 +28,12 @@ def main():
 
     #------------------------input images------------------------------------------------
     input, origin, dim = prep_image('imgs/dog.jpg', 320);
-    print(dim)
+    print('input:', input)
     input = input.to('cuda:0')
     print(input.shape)
     prediction = net(input, True)
     print('pre shape: ', prediction.shape)
+    print('pre : ', prediction)
     prediction = write_results(prediction, confidence, num_classes, nms = True, nms_conf = nms_thesh)
     print('pre shape1: ', prediction.shape)
     print('pre1: ', prediction)

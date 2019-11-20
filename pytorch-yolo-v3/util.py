@@ -146,6 +146,7 @@ def write_results(prediction, confidence, num_classes, nms = True, nms_conf = 0.
         
         image_pred_ = image_pred[non_zero_ind.squeeze(),:].view(-1,7)
         print('wr pre: ', image_pred_.shape)
+        print('image_pred_: ', image_pred_)
         
         #Get the various classes detected in the image
         try:
@@ -161,14 +162,17 @@ def write_results(prediction, confidence, num_classes, nms = True, nms_conf = 0.
             
 
             image_pred_class = image_pred_[class_mask_ind].view(-1,7)
+            print('image_pred_class: ', image_pred_class)
 
-		
-        
-             #sort the detections such that the entry with the maximum objectness
-             #confidence is at the top
+
+
+            #sort the detections such that the entry with the maximum objectness
+            #confidence is at the top
             conf_sort_index = torch.sort(image_pred_class[:,4], descending = True )[1]
             image_pred_class = image_pred_class[conf_sort_index]
+            print('image_pred_class1: ', image_pred_class)
             idx = image_pred_class.size(0)
+            print('image_pred_class2: ', idx)
             
             #if nms has to be done
             if nms:
@@ -319,6 +323,7 @@ def write_results_half(prediction, confidence, num_classes, nms = True, nms_conf
             image_pred_ = image_pred[non_zero_ind.squeeze(),:]
         except:
             continue
+
         
         #Get the various classes detected in the image
         img_classes = unique(image_pred_[:,-1].long()).half()
