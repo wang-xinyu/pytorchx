@@ -76,7 +76,7 @@ def main():
     print('output:', out)
 
     summary(net, (3, 320, 320))
-    return
+    #return
     f = open("yolov3.wts", 'w')
     f.write("{}\n".format(len(net.state_dict().keys())))
     for k,v in net.state_dict().items():
