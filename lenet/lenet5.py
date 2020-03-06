@@ -19,11 +19,13 @@ class Lenet5(nn.Module):
     def forward(self, x):
         print('input: ', x.shape)
         x = F.relu(self.conv1(x))
+        print('conv1',x.shape)
         x = self.pool1(x)
         print('pool1: ', x.shape)
         x = F.relu(self.conv2(x))
+        print('conv2',x.shape)
         x = self.pool1(x)
-
+        print('pool2',x.shape)
         x = x.view(x.size(0), -1)
         print('view: ', x.shape)
         x = F.relu(self.fc1(x))
@@ -34,11 +36,14 @@ class Lenet5(nn.Module):
 
 def main():
     print('cuda device count: ', torch.cuda.device_count())
+    torch.manual_seed(1234)
     net = Lenet5()
     net = net.to('cuda:0')
-    tmp = torch.randn(2, 1, 32, 32).to('cuda:0')
+    net.eval()
+    tmp = torch.ones(1, 1, 32, 32).to('cuda:0')
     out = net(tmp)
-    print('lenet out:', out.shape)
+    print('lenet out shape:', out.shape)
+    print('lenet out:', out)
     torch.save(net, "lenet5.pth")
 
 if __name__ == '__main__':
