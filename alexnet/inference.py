@@ -21,7 +21,7 @@ def main():
     print('output:', out)
 
     summary(net, (3, 224, 224))
-    return
+
     f = open("alexnet.wts", 'w')
     f.write("{}\n".format(len(net.state_dict().keys())))
     for k,v in net.state_dict().items():
