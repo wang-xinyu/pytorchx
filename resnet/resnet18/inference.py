@@ -7,7 +7,7 @@ from torchsummary import summary
 
 def main():
     print('cuda device count: ', torch.cuda.device_count())
-    net = torch.load('resnet18.pkl')
+    net = torch.load('resnet18.pth')
     net = net.to('cuda:0')
     net.eval()
     print('model: ', net)

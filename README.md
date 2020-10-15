@@ -34,5 +34,5 @@ For example, googlenet,
 ```
 cd googlenet
 python googlenet.py  // do inference and save model into .pth firstly.
-python inference.pya // then do inference and save weights file
+python inference.py // then do inference and save weights file
 ```
