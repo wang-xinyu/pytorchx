@@ -13,7 +13,7 @@ def main():
     tmp = torch.ones(2, 3, 224, 224).to('cuda:0')
     out = net(tmp)
     print('mobilenet out:', out.shape)
-    torch.save(net, "mobilenet.pth")
+    torch.save(net, "mobilenetv2.pth")
 
 if __name__ == '__main__':
     main()
