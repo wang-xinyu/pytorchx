@@ -10,7 +10,7 @@ def main():
     net = net.eval()
     net = net.to('cuda:0')
     print(net)
-    tmp = torch.ones(2, 3, 224, 224).to('cuda:0')
+    tmp = torch.ones(1, 3, 224, 224).to('cuda:0')
     out = net(tmp)
     print('mobilenet out:', out.shape)
     torch.save(net, "mobilenetv2.pth")
